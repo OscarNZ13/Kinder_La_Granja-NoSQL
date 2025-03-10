@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Registro";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Kinder La Granja</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/Kinder_La_Granja.styles.css" asp-append-version="true"/>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .register-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 400px;
+            max-height: 80vh; /* Máxima altura de la vista */
+            overflow-y: auto; /* Habilitar el scroll vertical */
+            padding-right: 15px; /* Espacio para la barra de desplazamiento */
+        }
+
+        .register-box {
+            width: 100%;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 70%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .toggle-password img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+        }
+
+        .toggle-password img:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <div class="register-box">
+        <h3 class="text-center mb-4">Registro</h3>
+        <form method="post" asp-action="Register" asp-controller="Usuarios">
+            <div class="form-outline mb-3">
+                <label class="form-label" for="cedula">Cédula</label>
+                <input type="number" id="cedula" name="cedula" class="form-control" required/>
+            </div>
+
+            <div class="form-outline mb-3">
+                <label class="form-label" for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" required/>
+            </div>
+
+            <div class="form-outline mb-3">
+                <label class="form-label" for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" class="form-control" required/>
+            </div>
+
+            <div class="form-outline mb-3 password-container">
+                <label class="form-label" for="password">Contraseña</label>
+                <input type="password" id="password" name="password" class="form-control" required/>
+                <button type="button" class="toggle-password" onclick="togglePassword()">
+                    <img id="eye-icon" src="~/lib/img/icons/eye_password_close.png" alt="Mostrar contraseña"/>
+                </button>
+            </div>
+
+            <div class="form-outline mb-3">
+                <label class="form-label" for="numTelefono">Número de Teléfono</label>
+                <input type="number" id="numTelefono" name="numTelefono" class="form-control" required/>
+            </div>
+
+            <div class="form-outline mb-3">
+                <label class="form-label" for="direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion" class="form-control" required/>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block w-100">Registrarse</button>
+
+            <div class="text-center mt-3">
+                @if (ViewData["Mensaje"] != null)
+                {
+                    <span class="text-danger">@ViewData["Mensaje"]</span>
+                }
+                <p>¿Ya tienes una cuenta? <a asp-action="Login" asp-controller="Usuarios">Inicia sesión aquí</a></p>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const eyeIcon = document.getElementById("eye-icon");
+
+        const eyeOpen = "@Url.Content("~/lib/img/icons/eye_password_open.png")";
+        const eyeClose = "@Url.Content("~/lib/img/icons/eye_password_close.png")";
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.src = eyeOpen;
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.src = eyeClose;
+        }
+    }
+</script>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
