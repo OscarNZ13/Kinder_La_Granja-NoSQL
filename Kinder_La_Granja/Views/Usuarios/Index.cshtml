@@ -1,0 +1,249 @@
+﻿@model IEnumerable<Usuarios>
+
+@{
+    ViewData["Title"] = "Index de Usuario";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinder Care - Inicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<!-- Encabezado -->
+<header>
+    <div class="logo">
+        <a href="@Url.Action("Index", "Home")">
+            <!-- Redirige a la página principal -->
+            <img src="~/img/kinderlogo.png" alt="Kinder Care Logo">
+        </a>
+        <span>Kinder La Granja</span>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a asp-controller="Usuarios" asp-action="Index"><i class="fas fa-user"></i> Usuarios</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-child"></i> Niños</a>
+            </li>
+        </ul>
+    </nav>
+    <a asp-controller="Usuarios" asp-action="logout" class="btn-login">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+    </a>
+</header>
+
+<section class="hero">
+    <h2>Usuarios Registrados</h2>
+
+    <div class="table-container">
+        <div class="table-wrapper">
+            <table class="custom-table">
+                <thead>
+                <tr>
+                    <th>Cédula</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td>@usuario.Cedula</td>
+                        <td>@usuario.Nombre</td>
+                        <td>@usuario.CorreoElectronico</td>
+                        <td>@usuario.NumTelefono</td>
+                        <td>@usuario.Direccion</td>
+                        <td>
+                            <span class="rol-badge rol-@usuario.IdRol">
+                                @(usuario.IdRol == 1 ? "Administrador" :
+                                usuario.IdRol == 2 ? "Docente" : "Padre")
+                            </span>
+                        </td>
+                        <td class="actions">
+                            <a asp-action="Editar" asp-route-id="@usuario.Id.ToString()" class="btn btn-edit">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-action="Eliminar" asp-route-id="@usuario.Id.ToString()" class="btn btn-delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+<style>
+    /* Estilos generales */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #0a0f24, #040717);
+        color: white;
+    }
+
+    /* Encabezado */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: rgba(10, 15, 36, 0.9);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    /* 🔹 Agregar espacio en el contenido para evitar que se superponga con el header */
+    .hero {
+        padding-top: 100px; /* Ajusta este valor según la altura del header */
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .logo img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-login {
+        background: #007bff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-login:hover {
+        background: #0056b3;
+    }
+
+    /* Sección Usuarios */
+    .hero {
+        text-align: center;
+        padding: 150px 20px;
+    }
+
+    /* Contenedor de la tabla */
+    .table-container {
+        max-width: 90%;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Contenedor con scroll interno */
+    .table-wrapper {
+        max-height: 400px; /* Altura máxima antes de activar el scroll */
+        overflow-y: auto;  /* Scroll vertical cuando hay muchos datos */
+    }
+
+    /* Estilos de la tabla */
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: white;
+    }
+
+    /* Fijar el encabezado y centrar los textos */
+    .custom-table thead {
+        position: sticky;
+        top: 0;
+        background: #007bff;
+        color: white;
+        z-index: 10;
+    }
+
+    .custom-table th, .custom-table td {
+        padding: 12px;
+        text-align: center; /* Centra los datos y los títulos */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Estilos de botones */
+    .btn {
+        padding: 8px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9em;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .btn-edit {
+        background: #ffc107;
+        color: black;
+    }
+
+    .btn-delete {
+        background: #dc3545;
+        color: white;
+    }
+
+    /* Badges de roles */
+    .rol-badge {
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+
+    .rol-1 { background: #ff9800; color: white; } /* Administrador */
+    .rol-2 { background: #2196F3; color: white; } /* Docente */
+    .rol-3 { background: #4CAF50; color: white; } /* Padre */
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Página cargada correctamente.");
+    });
+</script>

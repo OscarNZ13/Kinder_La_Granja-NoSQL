@@ -45,11 +45,19 @@ public class UsuariosDBContext : IUsuarios
     public void UpdateUsuario(string id, Usuarios usuario)
     {
         var objectId = ObjectId.Parse(id);
-        usuario.Id = objectId;
         var filter = Builders<Usuarios>.Filter.Eq(u => u.Id, objectId);
-        UsuariosCollection.ReplaceOne(filter, usuario);
-    }
 
+        var update = Builders<Usuarios>.Update
+            .Set(u => u.Cedula, usuario.Cedula)
+            .Set(u => u.Nombre, usuario.Nombre)
+            .Set(u => u.NumTelefono, usuario.NumTelefono)
+            .Set(u => u.Direccion, usuario.Direccion)
+            .Set(u => u.CorreoElectronico, usuario.CorreoElectronico)
+            .Set(u => u.IdRol, usuario.IdRol);
+
+        var result = UsuariosCollection.UpdateOne(filter, update);
+    }
+    
     public void DeleteUsuario(string id)
     {
         var objectId = ObjectId.Parse(id);

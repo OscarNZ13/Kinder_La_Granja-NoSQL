@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Kinder_La_Granja.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Eliminar Usuario";
 }
 
 <!DOCTYPE html>
@@ -32,15 +34,25 @@
     </a>
 </header>
 
-<!-- Sección principal -->
-<section class="hero">
-    <h1>Bienvenido a <span class="highlight">Kinder La Granja</span></h1>
-    <p>Todo lo que necesitas para el desarrollo de los más pequeños en un solo lugar.</p>
+<section class="delete-container">
+    <h2><i class="fas fa-exclamation-triangle warning-icon"></i> Eliminar Usuario</h2>
+
+    <p class="delete-message">
+        ¿Estás seguro de que deseas eliminar a <strong>@Model.Nombre</strong>?
+    </p>
+
+    <form asp-action="ConfirmarEliminar" method="post" class="delete-form">
+        <input type="hidden" asp-for="Id"/>
+
+        <div class="button-group">
+            <button type="submit" class="btn btn-danger delete-btn">Eliminar</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
 </section>
 
 </body>
 </html>
-
 
 <style>
     /* Estilos generales */
@@ -50,6 +62,7 @@
         padding: 0;
         background: linear-gradient(135deg, #0a0f24, #040717);
         color: white;
+        text-align: center;
     }
 
     /* Encabezado */
@@ -135,10 +148,74 @@
         color: #007bff;
         font-weight: bold;
     }
-    
+
+    /* Contenedor de eliminación */
+    .delete-container {
+        background: rgba(255, 0, 0, 0.1); /* Fondo rojo semitransparente */
+        padding: 50px;
+        margin: 150px auto;
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.5);
+    }
+
+    .warning-icon {
+        color: #ffcc00;
+        font-size: 2em;
+    }
+
+    .delete-message {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    /* Efecto de "shake" al pasar el mouse */
+    .delete-btn:hover {
+        animation: shake 0.3s ease-in-out;
+        background: darkred;
+    }
+
+    shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+
+    /* Botones */
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-danger {
+        background: red;
+        color: white;
+        border: none;
+    }
+
+    .btn-secondary {
+        background: gray;
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-secondary:hover {
+        background: darkgray;
+    }
     
 </style>
-
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         console.log("Página cargada correctamente.");

@@ -19,11 +19,10 @@ namespace Kinder_La_Granja.Models
         public string Nombre { get; set; }
 
         [BsonElement("contrasena_hash")]
-        [Required(ErrorMessage = "La contraseña es obligatoria.")]
         [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres.")]
         [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$",
             ErrorMessage = "La contraseña debe contener al menos una letra mayúscula, una minúscula y un número.")]
-        public string ContrasenaHash { get; set; }
+        public string? ContrasenaHash { get; set; }
 
         [BsonElement("num_telefono")] public int NumTelefono { get; set; }
 
