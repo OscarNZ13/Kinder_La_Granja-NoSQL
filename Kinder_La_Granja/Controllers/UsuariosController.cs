@@ -7,6 +7,8 @@ using System.Security.Claims;
 using System.Text.RegularExpressions;
 using Kinder_La_Granja.Models;
 using Microsoft.AspNetCore.Authorization;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace Kinder_La_Granja.Controllers;
 
@@ -21,12 +23,94 @@ public class UsuariosController : Controller
         _passwordHasher = new PasswordHasher<Usuarios>();
     }
 
+    // Mostrar Usuarios
     public IActionResult Index()
     {
         return View(_icontext.GetAllUsuarios());
 
     }
 
+    // GET: Editar Usuario
+    public IActionResult Editar(string id)
+    {
+        if (string.IsNullOrEmpty(id))
+            return NotFound();
+
+        var usuario = _icontext.GetUsuarioById(id);
+        
+        if (usuario == null)
+            return NotFound();
+
+        return View(usuario);
+    }
+
+    // POST: Guardar cambios de edición
+    [HttpPost]
+    public IActionResult Editar(Usuarios usuario)
+    {
+        if (!ModelState.IsValid)
+        {
+            Console.WriteLine("❌ ModelState no válido. Errores:");
+
+            foreach (var error in ModelState)
+            {
+                foreach (var subError in error.Value.Errors)
+                {
+                    Console.WriteLine($"⚠️ Campo: {error.Key} - Error: {subError.ErrorMessage}");
+                }
+            }
+
+            return View(usuario);
+        }
+
+        try
+        {
+            Console.WriteLine($"🟢 Editando usuario con ID: {usuario.Id}");
+            _icontext.UpdateUsuario(usuario.Id.ToString(), usuario);
+            return RedirectToAction("Index");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error en Editar: {ex.Message}");
+            ModelState.AddModelError("", "Error al actualizar el usuario.");
+            return View(usuario);
+        }
+    }
+
+
+    // GET: Eliminar Usuario (Confirmación)
+    public IActionResult Eliminar(string id)
+    {
+        if (string.IsNullOrEmpty(id))
+            return NotFound();
+
+        var usuario = _icontext.GetUsuarioById(id);
+        if (usuario == null)
+            return NotFound();
+
+        return View(usuario);
+    }
+
+    // POST: Confirmar eliminación
+    [HttpPost]
+    public IActionResult ConfirmarEliminar(string id)
+    {
+        if (string.IsNullOrEmpty(id))
+            return NotFound();
+
+        try
+        {
+            _icontext.DeleteUsuario(id);
+            return RedirectToAction("Index"); // Redirigir después de eliminar
+        }
+        catch
+        {
+            ModelState.AddModelError("", "Error al eliminar el usuario.");
+            return View("Eliminar", _icontext.GetUsuarioById(id));
+        }
+    }
+    
+    
     [HttpGet]
     public IActionResult login()
     {
