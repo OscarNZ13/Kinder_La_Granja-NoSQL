@@ -1,0 +1,297 @@
+﻿@model Kinder_La_Granja.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinder La Granja - Editar Usuario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<!-- Encabezado -->
+<header>
+    <div class="logo">
+        <a href="@Url.Action("Index", "Home")">
+            <!-- Redirige a la página principal -->
+            <img src="~/img/kinderlogo.png" alt="Kinder Care Logo">
+        </a>
+        <span>Kinder La Granja</span>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a asp-controller="Usuarios" asp-action="Index"><i class="fas fa-user"></i> Usuarios</a>
+            </li>
+            <li>
+                <a href="#"><i class="fas fa-child"></i> Niños</a>
+            </li>
+        </ul>
+    </nav>
+    <a asp-controller="Usuarios" asp-action="logout" class="btn-login">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+    </a>
+</header>
+
+<!-- Sección de edición -->
+<!-- Sección de edición -->
+<section class="form-container">
+    <h2>Editar Usuario</h2>
+    <form asp-action="Editar" method="post">
+        <input type="hidden" name="Id" value="@Model.Id.ToString()"/>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Cédula</label>
+                <input type="text" asp-for="Cedula" required/>
+                <span class="text-danger" asp-validation-for="Cedula"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" asp-for="Nombre" required/>
+                <span class="text-danger" asp-validation-for="Nombre"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" asp-for="CorreoElectronico" required/>
+                <span class="text-danger" asp-validation-for="CorreoElectronico"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Número de Teléfono</label>
+                <input type="text" asp-for="NumTelefono" required/>
+                <span class="text-danger" asp-validation-for="NumTelefono"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Dirección</label>
+                <textarea asp-for="Direccion"></textarea>
+                <span class="text-danger" asp-validation-for="Direccion"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Rol</label>
+                <select asp-for="IdRol">
+                    <option value="1">Administrador</option>
+                    <option value="2">Docente</option>
+                    <option value="3">Padre</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-save">Guardar Cambios</button>
+            <a asp-action="Index" class="btn-cancel">Cancelar</a>
+        </div>
+    </form>
+</section>
+
+</body>
+</html>
+
+<style>
+    /* Estilos generales */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #0a0f24, #040717);
+        color: white;
+    }
+
+    /* Encabezado */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: rgba(10, 15, 36, 0.9);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .logo img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-login {
+        background: #007bff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-login:hover {
+        background: #0056b3;
+    }
+
+    /* Contenedor del formulario */
+    .form-container {
+        max-width: 800px; /* Ampliamos el ancho */
+        margin: 120px auto;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+
+    /* Añadimos el estilo para las filas de formulario */
+    .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustamos las columnas dentro de cada fila */
+    .form-row .form-group {
+        flex: 1; /* Cada columna tomará el 50% del ancho disponible */
+    }
+
+    /* El resto del estilo sigue igual */
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 1em;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: 2px solid #007bff;
+    }
+
+
+    select {
+        background-color: #1e1e1e; /* Fondo oscuro */
+        color: white; /* Texto en blanco */
+        border: 1px solid #007bff; /* Borde azul */
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    /* Ajustar estilos cuando el select está desplegado */
+    select option {
+        background-color: #2a2a2a; /* Color de fondo para las opciones */
+        color: white; /* Color del texto */
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Cuando se pasa el mouse sobre las opciones */
+    select option:hover {
+        background-color: #007bff; /* Azul al pasar el mouse */
+        color: white;
+    }
+
+    .text-danger {
+        color: #ff4c4c;
+        font-size: 0.9em;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .btn-save {
+        background: #28a745;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-save:hover {
+        background: #218838;
+    }
+
+    .btn-cancel {
+        background: #dc3545;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        transition: 0.3s;
+    }
+
+    .btn-cancel:hover {
+        background: #c82333;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Página de edición cargada correctamente.");
+    });
+</script>

@@ -1,0 +1,137 @@
+﻿@model Kinder_La_Granja.Models.Ninos
+@{
+    ViewData["Title"] = "Registrar Niño";
+}
+
+<h2 class="mt-5 text-white text-center">Registrar Niño</h2>
+
+<form asp-action="Create" method="post" class="form-container">
+    <div class="form-row">
+        <div class="form-group">
+            <label>Cédula</label>
+            <input asp-for="cedula" class="form-control" />
+            <span asp-validation-for="cedula" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Nombre</label>
+            <input asp-for="nombre" class="form-control" />
+            <span asp-validation-for="nombre" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Fecha Nacimiento</label>
+            <input asp-for="fecha_nacimiento" type="date" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Dirección</label>
+            <input asp-for="direccion" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Póliza</label>
+            <input asp-for="poliza" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Nivel</label>
+            <select asp-for="nivel" class="form-select bg-dark text-white border-secondary" asp-items="ViewBag.Niveles">
+                <option value="">-- Seleccione un nivel --</option>
+            </select>
+            <span asp-validation-for="nivel" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h4 class="text-white mt-4">Referencias</h4>
+    <div id="referencias-container">
+    </div>
+    <button type="button" class="btn btn-info mb-3" onclick="agregarReferencia()">
+        <i class="fas fa-plus-circle"></i> Agregar Referencia
+    </button>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Volver</a>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        function agregarReferencia() {
+            const index = document.querySelectorAll('.referencia-block').length;
+            const container = document.getElementById('referencias-container');
+
+            const template = `
+                <div class="referencia-block mb-4 border-top pt-3">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Parentesco</label>
+                            <input name="Referencias[${index}].Parentesco" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input name="Referencias[${index}].Nombre" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Cédula</label>
+                            <input name="Referencias[${index}].Cedula" class="form-control" type="number" />
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input name="Referencias[${index}].Telefono" class="form-control" type="number" />
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', template);
+        }
+    </script>
+}
+
+<style>
+    .form-container {
+        max-width: 900px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        color: white;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        flex: 1;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+            .form-group input:focus,
+            .form-group select:focus {
+                outline: 2px solid #007bff;
+            }
+</style>

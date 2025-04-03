@@ -1,0 +1,94 @@
+﻿@model List<Kinder_La_Granja.Models.Ninos>
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<h2 class="mt-5 text-white text-center">Listado de Niños</h2>
+
+<div class="d-flex justify-content-center align-items-center gap-3 mb-4 flex-wrap">
+    <form method="get" asp-controller="Ninos" asp-action="Index" class="d-flex align-items-center gap-2">
+        <label for="nivelId" class="form-label text-white mb-0">Filtrar por Nivel:</label>
+        <select id="nivelId" name="nivelId"
+                class="form-select bg-dark text-white border-secondary"
+                asp-items="ViewBag.Niveles"
+                onchange="this.form.submit()"
+                style="width: auto;">
+            <option value="">-- Todos los niveles --</option>
+        </select>
+    </form>
+
+    <a asp-action="Create" class="btn btn-info text-white">
+        <i class="fas fa-plus-circle"></i> Agregar Niño
+    </a>
+</div>
+
+<div class="table-container">
+    <div class="table-wrapper">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cédula</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null || !Model.Any())
+                {
+                    <tr><td colspan="4">No hay niños registrados.</td></tr>
+                }
+                else
+                {
+                    foreach (var n in Model)
+                    {
+                        <tr>
+                            <td>@n.nombre</td>
+                            <td>@n.cedula</td>
+                            <td>@n.fecha_nacimiento.ToShortDateString()</td>
+                            <td>
+                                <a class="btn btn-outline-primary btn-sm" asp-action="Detalle" asp-route-id="@n._id">
+                                    <i class="fas fa-eye"></i> Ver Detalles
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .table-container {
+        max-width: 90%;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .table-wrapper {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: white;
+    }
+
+        .custom-table thead {
+            position: sticky;
+            top: 0;
+            background: #007bff;
+            color: white;
+            z-index: 10;
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+</style>

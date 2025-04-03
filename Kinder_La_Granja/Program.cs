@@ -63,6 +63,8 @@ builder.Services.AddSingleton<MongoDBService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IUsuarios, UsuariosDBContext>();
+builder.Services.AddTransient<INinos, NinosDBContext>();
+builder.Services.AddTransient<INivel, NivelDBContext>();
 
 // Configure authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
