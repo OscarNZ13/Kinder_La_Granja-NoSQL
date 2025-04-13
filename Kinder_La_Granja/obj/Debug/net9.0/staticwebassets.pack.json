@@ -201,6 +201,10 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\wwwroot\\lib\\img\\icons\\Condiciones_icon.png",
+      "PackagePath": "staticwebassets\\lib\\img\\icons\\Condiciones_icon.png"
+    },
+    {
       "Id": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\wwwroot\\lib\\img\\icons\\eye_password_close.png",
       "PackagePath": "staticwebassets\\lib\\img\\icons\\eye_password_close.png"
     },

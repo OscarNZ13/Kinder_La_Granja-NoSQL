@@ -142,7 +142,8 @@ public class UsuariosController : Controller
         {
             new Claim(ClaimTypes.NameIdentifier, buscarUsuario.Id.ToString()),
             new Claim(ClaimTypes.Name, buscarUsuario.Nombre),
-            new Claim(ClaimTypes.Email, buscarUsuario.CorreoElectronico)
+            new Claim(ClaimTypes.Email, buscarUsuario.CorreoElectronico),
+            new Claim(ClaimTypes.Role, buscarUsuario.IdRol.ToString())
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -150,7 +151,7 @@ public class UsuariosController : Controller
 
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
             new ClaimsPrincipal(claimsIdentity), properties);
-
+        
         return RedirectToAction("Index", "Home");
     }
 

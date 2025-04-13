@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xqJjKnL2GNgEV3FFkpxEMTIPKXk8xHNq9L13ycNtKEY=",
+  "Hash": "YTlWwxBb25DcZiqidB4yrVY8PYvOKSI2kax5FNO+5ZE=",
   "Source": "Kinder_La_Granja",
   "BasePath": "_content/Kinder_La_Granja",
   "Mode": "Default",
@@ -2430,6 +2430,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\wwwroot\\lib\\img\\icons\\Condiciones_icon.png",
+      "SourceId": "Kinder_La_Granja",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\wwwroot\\",
+      "BasePath": "_content/Kinder_La_Granja",
+      "RelativePath": "lib/img/icons/Condiciones_icon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "al7i5fmu22",
+      "Integrity": "7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\img\\icons\\Condiciones_icon.png"
     },
     {
       "Identity": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\wwwroot\\lib\\img\\icons\\eye_password_close.png",
@@ -17553,6 +17574,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-ZH6pA6BSx6fuHZvdaKph1DwUJ+VSYilIiEQu8ilnvqk="
+        }
+      ]
+    },
+    {
+      "Route": "lib/img/icons/Condiciones_icon.al7i5fmu22.png",
+      "AssetFile": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\wwwroot\\lib\\img\\icons\\Condiciones_icon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7264"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 19:28:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "al7i5fmu22"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/img/icons/Condiciones_icon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM="
+        }
+      ]
+    },
+    {
+      "Route": "lib/img/icons/Condiciones_icon.png",
+      "AssetFile": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\wwwroot\\lib\\img\\icons\\Condiciones_icon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7264"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 19:28:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM="
         }
       ]
     },

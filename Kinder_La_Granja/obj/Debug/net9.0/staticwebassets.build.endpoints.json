@@ -14471,6 +14471,88 @@
       ]
     },
     {
+      "Route": "lib/img/icons/Condiciones_icon.al7i5fmu22.png",
+      "AssetFile": "lib/img/icons/Condiciones_icon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7264"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 19:28:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "al7i5fmu22"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM="
+        },
+        {
+          "Name": "label",
+          "Value": "lib/img/icons/Condiciones_icon.png"
+        }
+      ]
+    },
+    {
+      "Route": "lib/img/icons/Condiciones_icon.png",
+      "AssetFile": "lib/img/icons/Condiciones_icon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7264"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Apr 2025 19:28:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7pddBBq+AH8SkPStvZ5FCnGEtQPuvlZGwgF562lbLNM="
+        }
+      ]
+    },
+    {
       "Route": "lib/img/icons/eye_password_close.3rfzcq4r6r.png",
       "AssetFile": "lib/img/icons/eye_password_close.png",
       "Selectors": [],
