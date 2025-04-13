@@ -1,7 +1,40 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\thama\\OneDrive - Universidad Fid\u00E9litas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|c:\\users\\andy madrigal\\source\\repos\\kinder_la_granja-nosql\\kinder_la_granja\\views\\ninos\\detalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|solutionrelative:kinder_la_granja\\views\\ninos\\detalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|c:\\users\\andy madrigal\\source\\repos\\kinder_la_granja-nosql\\kinder_la_granja\\models\\ninos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|solutionrelative:kinder_la_granja\\models\\ninos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|c:\\users\\andy madrigal\\source\\repos\\kinder_la_granja-nosql\\kinder_la_granja\\controllers\\ninoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|solutionrelative:kinder_la_granja\\controllers\\ninoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|c:\\users\\andy madrigal\\source\\repos\\kinder_la_granja-nosql\\kinder_la_granja\\interface\\ininos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|solutionrelative:kinder_la_granja\\interface\\ininos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|c:\\users\\andy madrigal\\source\\repos\\kinder_la_granja-nosql\\kinder_la_granja\\data\\condiciones_medicasdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|solutionrelative:kinder_la_granja\\data\\condiciones_medicasdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|c:\\users\\andy madrigal\\source\\repos\\kinder_la_granja-nosql\\kinder_la_granja\\data\\ninosdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|solutionrelative:kinder_la_granja\\data\\ninosdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|c:\\users\\andy madrigal\\source\\repos\\kinder_la_granja-nosql\\kinder_la_granja\\interface\\icondiciones_medicas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|solutionrelative:kinder_la_granja\\interface\\icondiciones_medicas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|c:\\users\\andy madrigal\\source\\repos\\kinder_la_granja-nosql\\kinder_la_granja\\models\\condiciones_medicas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F994ED5-430D-43DF-B91F-09833A085DC1}|Kinder_La_Granja\\Kinder_La_Granja.csproj|solutionrelative:kinder_la_granja\\models\\condiciones_medicas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 152,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 20,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,6 +123,110 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Detalle.cshtml",
+              "DocumentMoniker": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Views\\Ninos\\Detalle.cshtml",
+              "RelativeDocumentMoniker": "Kinder_La_Granja\\Views\\Ninos\\Detalle.cshtml",
+              "ToolTip": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Views\\Ninos\\Detalle.cshtml",
+              "RelativeToolTip": "Kinder_La_Granja\\Views\\Ninos\\Detalle.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-13T16:25:47.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Condiciones_Medicas.cs",
+              "DocumentMoniker": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Models\\Condiciones_Medicas.cs",
+              "RelativeDocumentMoniker": "Kinder_La_Granja\\Models\\Condiciones_Medicas.cs",
+              "ToolTip": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Models\\Condiciones_Medicas.cs",
+              "RelativeToolTip": "Kinder_La_Granja\\Models\\Condiciones_Medicas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T04:05:24.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ICondiciones_Medicas.cs",
+              "DocumentMoniker": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Interface\\ICondiciones_Medicas.cs",
+              "RelativeDocumentMoniker": "Kinder_La_Granja\\Interface\\ICondiciones_Medicas.cs",
+              "ToolTip": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Interface\\ICondiciones_Medicas.cs",
+              "RelativeToolTip": "Kinder_La_Granja\\Interface\\ICondiciones_Medicas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T03:28:45.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Condiciones_MedicasDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Data\\Condiciones_MedicasDBContext.cs",
+              "RelativeDocumentMoniker": "Kinder_La_Granja\\Data\\Condiciones_MedicasDBContext.cs",
+              "ToolTip": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Data\\Condiciones_MedicasDBContext.cs",
+              "RelativeToolTip": "Kinder_La_Granja\\Data\\Condiciones_MedicasDBContext.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAIwEAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T03:27:57.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NinosController.cs",
+              "DocumentMoniker": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Controllers\\NinosController.cs",
+              "RelativeDocumentMoniker": "Kinder_La_Granja\\Controllers\\NinosController.cs",
+              "ToolTip": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Controllers\\NinosController.cs",
+              "RelativeToolTip": "Kinder_La_Granja\\Controllers\\NinosController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAEwHIAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T01:36:00.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NinosDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Data\\NinosDBContext.cs",
+              "RelativeDocumentMoniker": "Kinder_La_Granja\\Data\\NinosDBContext.cs",
+              "ToolTip": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Data\\NinosDBContext.cs",
+              "RelativeToolTip": "Kinder_La_Granja\\Data\\NinosDBContext.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCcAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T01:35:58.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "INinos.cs",
+              "DocumentMoniker": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Interface\\INinos.cs",
+              "RelativeDocumentMoniker": "Kinder_La_Granja\\Interface\\INinos.cs",
+              "ToolTip": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Interface\\INinos.cs",
+              "RelativeToolTip": "Kinder_La_Granja\\Interface\\INinos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T01:35:56.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ninos.cs",
+              "DocumentMoniker": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Models\\Ninos.cs",
+              "RelativeDocumentMoniker": "Kinder_La_Granja\\Models\\Ninos.cs",
+              "ToolTip": "C:\\Users\\Andy Madrigal\\source\\repos\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Models\\Ninos.cs",
+              "RelativeToolTip": "Kinder_La_Granja\\Models\\Ninos.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAewDsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T01:35:55.398Z",
+              "EditorCaption": ""
             }
           ]
         }
