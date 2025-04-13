@@ -65,6 +65,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IUsuarios, UsuariosDBContext>();
 builder.Services.AddTransient<INinos, NinosDBContext>();
 builder.Services.AddTransient<INivel, NivelDBContext>();
+builder.Services.AddTransient<ICondiciones_Medicas, Condiciones_MedicasDBContext>();
+
 
 // Configure authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>

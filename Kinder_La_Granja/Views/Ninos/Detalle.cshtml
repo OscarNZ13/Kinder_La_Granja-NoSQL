@@ -66,6 +66,25 @@
             }
         }
 
+        <div class="form-row">
+            <div class="form-group">
+                <label>Condiciones Médicas</label>
+                @if (Model.CondicionesMedicasDetalles != null && Model.CondicionesMedicasDetalles.Count > 0)
+                {
+                    <ul>
+                        @foreach (var condicion in Model.CondicionesMedicasDetalles)
+                        {
+                            <li>@condicion.nombre</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>No tiene condiciones médicas registradas.</p>
+                }
+            </div>
+        </div>
+
         <div class="button-group mt-4 d-flex justify-content-center">
             <a asp-action="Index" class="btn-cancel">Volver al Listado</a>
         </div>

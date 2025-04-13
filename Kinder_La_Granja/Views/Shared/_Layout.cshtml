@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Kinder_La_Granja.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 
 </head>
 <body>
@@ -22,6 +24,7 @@
             <ul>
                 <li><a asp-controller="Usuarios" asp-action="Index"><i class="fas fa-user"></i> Usuarios</a></li>
                 <li><a asp-controller="Ninos" asp-action="Index"><i class="fas fa-child"></i> Niños</a></li>
+                <li><a asp-controller="Condiciones_Medicas" asp-action="Index"><i class="fas fa-child"></i> Condiciones Medicas</a></li>
             </ul>
         </nav>
         <a asp-controller="Usuarios" asp-action="logout" class="btn-login">
@@ -44,6 +47,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 
     <style>
