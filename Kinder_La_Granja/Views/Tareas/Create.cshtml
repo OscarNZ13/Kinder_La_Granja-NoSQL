@@ -1,0 +1,123 @@
+﻿@model Kinder_La_Granja.Models.Tareas
+
+<h2 class="mt-5 text-white text-center">Registrar Tarea</h2>
+
+<section class="form-container mb-5">
+    <form asp-action="Create" method="post">
+        <div class="form-row">
+          
+            <div class="form-group">
+                <label>Nombre</label>
+                <input asp-for="nombre" class="form-control" />
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea asp-for="descripcion" class="form-control"></textarea>
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Docente</label>
+                <select asp-for="id_usuarioDocente" class="form-select bg-dark text-white border-secondary" asp-items="ViewBag.Usuarios">
+                    <option value="">-- Seleccione un docente --</option>
+                </select>
+                <span asp-validation-for="id_usuarioDocente" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Fecha Asignada</label>
+                <input asp-for="fecha_asignada" type="date" class="form-control" />
+                <span asp-validation-for="fecha_asignada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Fecha Entrega</label>
+                <input asp-for="fecha_entrega" type="date" class="form-control" />
+                <span asp-validation-for="fecha_entrega" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4 flex-wrap gap-2">
+            <a asp-action="Index" class="btn-cancel">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+            <button type="submit" class="btn-agregar">
+                <i class="fas fa-save"></i> Guardar Tarea
+            </button>
+        </div>
+    </form>
+</section>
+
+<style>
+    .form-container {
+        max-width: 800px;
+        margin: 30px auto;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        color: white;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    .form-group {
+        flex: 1;
+        min-width: 240px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+    }
+
+    .text-danger {
+        color: #ff4c4c;
+        font-size: 0.9em;
+    }
+
+    .btn-agregar {
+        background: #28a745;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        border: none;
+        text-decoration: none;
+    }
+
+        .btn-agregar:hover {
+            background: #218838;
+        }
+
+    .btn-cancel {
+        background: #6c757d;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+        .btn-cancel:hover {
+            background: #5a6268;
+        }
+</style>

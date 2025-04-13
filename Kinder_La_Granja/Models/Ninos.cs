@@ -36,25 +36,13 @@ namespace Kinder_La_Granja.Models
 
         [Required]
         public int nivel { get; set; }
-
-
-        //[BsonElement("condiciones_medicas")]
-        //public List<ObjectId> condiciones_medicas { get; set; } // Lista de ObjectId.
-
-      
-
         
         public List<int> condiciones_medicas { get; set; }
-
-
-        //[BsonElement("CondicionesMedicasObjectId")]
-        //public ObjectId CondicionesMedicasObjectId { get; set; }
-
 
         public List<Referencia> Referencias { get; set; }
 
         public List<ObjectId> CondicionesMedicas { get; set; } // Para almacenar las seleccionadas
-                                                               //public IEnumerable<SelectListItem> CondicionesMedicasDisponibles { get; set; } // Para el select
+                                                             
 
         [BsonIgnore] // Ignorar esta propiedad en la base de datos
         public List<Condiciones_Medicas> CondicionesMedicasDetalles { get; set; } // Lista de objetos detallados
