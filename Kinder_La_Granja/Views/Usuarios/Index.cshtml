@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Usuarios>
+﻿@using System.Security.Claims
+@model IEnumerable<Usuarios>
 
 @{
     ViewData["Title"] = "Index de Usuario";
@@ -72,12 +73,24 @@
                             </span>
                         </td>
                         <td class="actions">
-                            <a asp-action="Editar" asp-route-id="@usuario.Id.ToString()" class="btn btn-edit">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a asp-action="Eliminar" asp-route-id="@usuario.Id.ToString()" class="btn btn-delete">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
+                            @if (User.IsInRole("1"))
+                            {
+                                <a asp-action="Editar" asp-route-id="@usuario.Id.ToString()" class="btn btn-edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                if (User.FindFirst(ClaimTypes.Email)?.Value != usuario.CorreoElectronico)
+                                {
+                                    <a asp-action="Eliminar" asp-route-id="@usuario.Id.ToString()" class="btn btn-delete">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                }
+
+                            }
+                            else
+                            {
+                            <p>Docentes no cuentan con acciones</p>
+                            }
                         </td>
                     </tr>
                 }
