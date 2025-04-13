@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - Kinder La Granja</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Kinder_La_Granja.styles.css" asp-append-version="true"/>
 
@@ -17,8 +18,9 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #0a0f24, #040717); /* Igual que tu página principal */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
         }
 
         .login-container {
@@ -28,18 +30,44 @@
             transform: translate(-50%, -50%);
             width: 100%;
             max-width: 400px;
+            padding: 20px;
         }
 
         .login-box {
-            width: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
             padding: 30px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-label {
+            color: #ffffff;
         }
 
         .form-control {
-            border-radius: 5px;
+            border-radius: 6px;
+            background-color: #1c1f2b;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        .form-control:focus {
+            background-color: #1c1f2b;
+            color: white;
+            border-color: #007bff;
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 6px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
         }
 
         .password-container {
@@ -49,7 +77,7 @@
         .toggle-password {
             position: absolute;
             right: 10px;
-            top: 70%;
+            top: 65%;
             transform: translateY(-50%);
             background: none;
             border: none;
@@ -67,9 +95,17 @@
             opacity: 1;
         }
 
-        .btn-primary {
-            width: 100%;
-            border-radius: 5px;
+        .text-danger {
+            font-size: 0.9em;
+        }
+
+        a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -102,10 +138,10 @@
                 @if (ViewData["Mensaje"] != null)
                 {
                     <span class="text-danger">
-                            @ViewData["Mensaje"]
-                        </span>
+                        @ViewData["Mensaje"]
+                    </span>
                 }
-                <p>No estás registrado? <a asp-action="register" asp-controller="Usuarios">Regístrate aquí</a></p>
+                <p class="mt-2">¿No estás registrado? <a asp-action="register" asp-controller="Usuarios">Regístrate aquí</a></p>
             </div>
         </form>
     </div>
