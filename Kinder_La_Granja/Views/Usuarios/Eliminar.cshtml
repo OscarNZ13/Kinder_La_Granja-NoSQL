@@ -4,36 +4,6 @@
     ViewData["Title"] = "Eliminar Usuario";
 }
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinder Care - Inicio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-
-<!-- Encabezado -->
-<header>
-    <div class="logo">
-        <a href="@Url.Action("Index", "Home")">
-            <!-- Redirige a la página principal -->
-            <img src="~/img/kinderlogo.png" alt="Kinder Care Logo">
-        </a>
-        <span>Kinder La Granja</span>
-    </div>
-    <nav>
-        <ul>
-            <li><a asp-controller="Usuarios" asp-action="Index"><i class="fas fa-user"></i> Usuarios</a></li>
-            <li><a href="#"><i class="fas fa-child"></i> Niños</a></li>
-        </ul>
-    </nav>
-    <a asp-controller="Usuarios" asp-action="logout" class="btn-login">
-        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-    </a>
-</header>
-
 <section class="delete-container">
     <h2><i class="fas fa-exclamation-triangle warning-icon"></i> Eliminar Usuario</h2>
 
@@ -51,8 +21,6 @@
     </form>
 </section>
 
-</body>
-</html>
 
 <style>
     /* Estilos generales */

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj": {}
+    "C:\\Users\\thama\\OneDrive - Universidad Fidélitas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj": {
+    "C:\\Users\\thama\\OneDrive - Universidad Fidélitas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj",
+        "projectUniqueName": "C:\\Users\\thama\\OneDrive - Universidad Fidélitas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj",
         "projectName": "Kinder_La_Granja",
-        "projectPath": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj",
-        "packagesPath": "C:\\Users\\kokar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kokar\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\obj\\",
+        "projectPath": "C:\\Users\\thama\\OneDrive - Universidad Fidélitas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj",
+        "packagesPath": "C:\\Users\\thama\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thama\\OneDrive - Universidad Fidélitas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\kokar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thama\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,7 +42,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -81,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

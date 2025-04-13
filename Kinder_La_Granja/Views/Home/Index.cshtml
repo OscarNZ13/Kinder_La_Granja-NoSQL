@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+@* 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,17 +32,17 @@
     <a asp-controller="Usuarios" asp-action="logout" class="btn-login">
         <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
     </a>
-</header>
+</header> *@
 
 <!-- Sección principal -->
 <section class="hero">
     <h1>Bienvenido @User.Identity?.Name a <span class="highlight">Kinder La Granja</span></h1>
     <p>Todo lo que necesitas para el desarrollo de los más pequeños en un solo lugar.</p>
 </section>
-
+@* 
 </body>
 </html>
-
+ *@
 
 <style>
     /* Estilos generales */

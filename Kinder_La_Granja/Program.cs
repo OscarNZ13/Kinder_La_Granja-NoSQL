@@ -66,6 +66,7 @@ builder.Services.AddTransient<IUsuarios, UsuariosDBContext>();
 builder.Services.AddTransient<INinos, NinosDBContext>();
 builder.Services.AddTransient<INivel, NivelDBContext>();
 builder.Services.AddTransient<ICondiciones_Medicas, Condiciones_MedicasDBContext>();
+builder.Services.AddTransient<ITareas, TareasDBContext>();
 
 
 // Configure authentication

@@ -5,43 +5,8 @@
     ViewData["Title"] = "Index de Usuario";
 }
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinder Care - Inicio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-
-<!-- Encabezado -->
-<header>
-    <div class="logo">
-        <a href="@Url.Action("Index", "Home")">
-            <!-- Redirige a la página principal -->
-            <img src="~/img/kinderlogo.png" alt="Kinder Care Logo">
-        </a>
-        <span>Kinder La Granja</span>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a asp-controller="Usuarios" asp-action="Index"><i class="fas fa-user"></i> Usuarios</a>
-            </li>
-            <li>
-                    <a asp-controller="Ninos" asp-action="Index"><i class="fas fa-child"></i> Niños</a>
-            </li>
-                <li><a asp-controller="Condiciones_Medicas" asp-action="Index"><i class="fas fa-child"></i> Condiciones Medicas</a></li>
-        </ul>
-    </nav>
-    <a asp-controller="Usuarios" asp-action="logout" class="btn-login">
-        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-    </a>
-</header>
-
 <section class="hero">
-    <h2>Usuarios Registrados</h2>
+    <h2 class="mt-5 text-white text-center">Usuarios Registrados</h2>
 
     <div class="table-container">
         <div class="table-wrapper">
@@ -54,7 +19,9 @@
                     <th>Teléfono</th>
                     <th>Dirección</th>
                     <th>Rol</th>
+                        @if (User.IsInRole("1")){
                     <th>Acciones</th>
+                        }
                 </tr>
                 </thead>
                 <tbody>
@@ -72,24 +39,19 @@
                                 usuario.IdRol == 2 ? "Docente" : "Padre")
                             </span>
                         </td>
-                        <td class="actions">
+                        <td >
                             @if (User.IsInRole("1"))
                             {
-                                <a asp-action="Editar" asp-route-id="@usuario.Id.ToString()" class="btn btn-edit">
-                                    <i class="fas fa-edit"></i>
+                                    <a asp-action="Editar" asp-route-id="@usuario.Id.ToString()" class="btn btn-outline-warning btn-sm mb-1">
+                                    <i class="fas fa-edit"></i> Editar
                                 </a>
 
                                 if (User.FindFirst(ClaimTypes.Email)?.Value != usuario.CorreoElectronico)
                                 {
-                                    <a asp-action="Eliminar" asp-route-id="@usuario.Id.ToString()" class="btn btn-delete">
-                                        <i class="fas fa-trash-alt"></i>
+                                        <a asp-action="Eliminar" asp-route-id="@usuario.Id.ToString()" class="btn btn-outline-danger btn-sm">
+                                        <i class="fas fa-trash-alt"></i> Eliminar
                                     </a>
                                 }
-
-                            }
-                            else
-                            {
-                            <p>Docentes no cuentan con acciones</p>
                             }
                         </td>
                     </tr>
@@ -99,8 +61,6 @@
         </div>
     </div>
 </section>
-</body>
-</html>
 
 <style>
     /* Estilos generales */
@@ -127,7 +87,7 @@
     }
     /* 🔹 Agregar espacio en el contenido para evitar que se superponga con el header */
     .hero {
-        padding-top: 100px; /* Ajusta este valor según la altura del header */
+        padding-top: 30px; /* Ajusta este valor según la altura del header */
     }
     
     .logo {
@@ -175,13 +135,7 @@
 
     .btn-login:hover {
         background: #0056b3;
-    }
-
-    /* Sección Usuarios */
-    .hero {
-        text-align: center;
-        padding: 150px 20px;
-    }
+    } 
 
     /* Contenedor de la tabla */
     .table-container {
