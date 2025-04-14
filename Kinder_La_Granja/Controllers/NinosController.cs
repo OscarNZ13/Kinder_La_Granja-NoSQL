@@ -120,7 +120,7 @@ public class NinosController : Controller
 
         return View(nino);
     }
-    
+
     [HttpGet]
     public async Task<IActionResult> VerTareas(string id)
     {
@@ -149,7 +149,7 @@ public class NinosController : Controller
 
         return View(tareasAsignadas);
     }
-
+    
     [HttpPost]
     public async Task<IActionResult> AsignarTareas(string ninoId, List<string> selectedTareas)
     {
