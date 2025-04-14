@@ -3232,19 +3232,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\XPC\\.nuget\\packages\\": {}
+    "C:\\Users\\thama\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\XPC\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj",
+      "projectUniqueName": "C:\\Users\\thama\\OneDrive - Universidad Fidélitas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj",
       "projectName": "Kinder_La_Granja",
-      "projectPath": "C:\\Users\\XPC\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj",
-      "packagesPath": "C:\\Users\\XPC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\XPC\\RiderProjects\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\obj\\",
+      "projectPath": "C:\\Users\\thama\\OneDrive - Universidad Fidélitas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\Kinder_La_Granja.csproj",
+      "packagesPath": "C:\\Users\\thama\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\thama\\OneDrive - Universidad Fidélitas\\Universidad\\VII Cuatrimestre\\NoSQL\\Proyecto\\Kinder_La_Granja-NoSQL\\Kinder_La_Granja\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\XPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\thama\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3268,8 +3273,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -3305,7 +3311,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\XPC\\.dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

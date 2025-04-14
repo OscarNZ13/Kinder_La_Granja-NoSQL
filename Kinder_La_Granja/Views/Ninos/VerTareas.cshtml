@@ -46,26 +46,41 @@ else
 
 <h3 class="mt-4 text-white">Asignar Nuevas Tareas</h3>
 <form method="post" asp-action="AsignarTareas" asp-route-ninoId="@ViewBag.NinoId">
-    <div class="form-group">
-        <label for="Tareas" class="text-white">Selecciona las Tareas:</label>
-        <select name="selectedTareas" class="form-control" multiple="multiple">
-            @foreach (var tarea in ViewBag.TodasLasTareas)
-            {
-                <option value="@tarea._id">
-                    @* Mostramos los detalles de cada tarea *@
-                    Tarea: @tarea.nombre
-                    - Descripción: @tarea.descripcion
-                    - Fecha Asignada: @tarea.fecha_asignada.ToShortDateString()
-                    - Fecha de Entrega: @tarea.fecha_entrega.ToShortDateString()
-                </option>
-            }
-        </select>
+    <div class="table-container">
+        <div class="table-wrapper">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Seleccionar</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Fecha Asignada</th>
+                        <th>Fecha Entrega</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tarea in ViewBag.TodasLasTareas)
+                    {
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="selectedTareas" value="@tarea._id" />
+                            </td>
+                            <td>@tarea.nombre</td>
+                            <td>@tarea.descripcion</td>
+                            <td>@tarea.fecha_asignada.ToShortDateString()</td>
+                            <td>@tarea.fecha_entrega.ToShortDateString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
+
     <button type="submit" class="btn btn-outline-primary mt-3">Asignar Tareas</button>
 </form>
 
-<a asp-action="Index" class="btn btn-secondary mt-3">Volver al Listado de Niños</a>
 
+<a asp-action="Index" class="btn btn-secondary mt-3">Volver al Listado de Niños</a>
 <style>
     .table-container {
         max-width: 90%;
@@ -87,57 +102,86 @@ else
         color: white;
     }
 
-    .custom-table thead {
-        position: sticky;
-        top: 0;
-        background: #007bff;
+        .custom-table thead {
+            position: sticky;
+            top: 0;
+            background: #007bff;
+            color: white;
+            z-index: 10;
+        }
+
+        .custom-table th,
+        .custom-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+    /* Estilo para el select multiple */
+    select[multiple] {
+        background-color: #1e1e1e;
         color: white;
-        z-index: 10;
+        border: 1px solid #6c757d;
+        padding: 10px;
+        border-radius: 5px;
+        height: auto;
+        min-height: 150px;
     }
 
-    .custom-table th, .custom-table td {
-        padding: 12px;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
+        select[multiple] option {
+            background-color: #1e1e1e;
+            color: white;
+            padding: 5px;
+        }
 
+            select[multiple] option:hover {
+                background-color: #007bff;
+                color: white;
+            }
+
+    /* Botones */
     .btn-outline-primary {
         border-color: #007bff;
         color: #007bff;
     }
 
-    .btn-outline-primary:hover {
-        background-color: #007bff;
-        color: white;
-    }
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
 
     .btn-outline-danger {
         border-color: #dc3545;
         color: #dc3545;
     }
 
-    .btn-outline-danger:hover {
-        background-color: #dc3545;
-        color: white;
-    }
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
 
     .btn-outline-warning {
         border-color: #ffc107;
         color: #ffc107;
     }
 
-    .btn-outline-warning:hover {
-        background-color: #ffc107;
-        color: white;
-    }
+        .btn-outline-warning:hover {
+            background-color: #ffc107;
+            color: white;
+        }
 
     .btn-outline-info {
         border-color: #17a2b8;
         color: #17a2b8;
     }
 
-    .btn-outline-info:hover {
-        background-color: #17a2b8;
-        color: white;
+        .btn-outline-info:hover {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+    input[type="checkbox"] {
+        transform: scale(1.2);
+        cursor: pointer;
     }
 </style>
