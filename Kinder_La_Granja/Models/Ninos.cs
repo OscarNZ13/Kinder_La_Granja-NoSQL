@@ -42,8 +42,9 @@ namespace Kinder_La_Granja.Models
         public List<Referencia> Referencias { get; set; }
 
         public List<ObjectId> CondicionesMedicas { get; set; } // Para almacenar las seleccionadas
-                                                             
-
+        
+        public List<ObjectId> tareas { get; set; } // Lista de referencias de tareas
+        
         [BsonIgnore] // Ignorar esta propiedad en la base de datos
         public List<Condiciones_Medicas> CondicionesMedicasDetalles { get; set; } // Lista de objetos detallados
     }

@@ -18,12 +18,15 @@ public class NinosController : Controller
     private readonly INinos _ninoService;
     private readonly INivel _nivelService;
     private readonly ICondiciones_Medicas _icontext;
+    private readonly ITareas _tareasService;
 
-    public NinosController(INinos ninoService, INivel nivelService, ICondiciones_Medicas icontext)
+    public NinosController(INinos ninoService, INivel nivelService, ICondiciones_Medicas icontext,
+        ITareas tareasService)
     {
         _ninoService = ninoService;
         _nivelService = nivelService;
         _icontext = icontext;
+        _tareasService = tareasService;
     }
 
     public async Task<IActionResult> Index(string nivelId)
@@ -46,7 +49,6 @@ public class NinosController : Controller
 
         return View(resultado ?? new List<Ninos>());
     }
-
 
 
     public async Task<IActionResult> Create()
@@ -79,8 +81,8 @@ public class NinosController : Controller
         //}
 
         nino.CondicionesMedicas = selectedCondicionesMedicas
-        .Select(id => new ObjectId(id))
-        .ToList();
+            .Select(id => new ObjectId(id))
+            .ToList();
 
         await _ninoService.CreateAsync(nino);
         return RedirectToAction("Index");
@@ -119,5 +121,81 @@ public class NinosController : Controller
         return View(nino);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> VerTareas(string id)
+    {
+        var objectId = ObjectId.Parse(id);
+        var nino = await _ninoService.GetByIdAsync(objectId);
 
+        if (nino == null)
+        {
+            return NotFound();
+        }
+
+        ViewBag.NinoId = id;
+
+        // Obtener todas las tareas
+        var todasLasTareas = await _tareasService.GetAllAsync();
+
+        // Filtrar las tareas ya asignadas al niño
+        var tareasAsignadas = await _tareasService.GetTareasFromIdsAsync(nino.tareas);
+
+        // Eliminar las tareas asignadas de la lista de tareas disponibles
+        var tareasDisponibles = todasLasTareas
+            .Where(t => !nino.tareas.Contains(t._id)) // Filtra las tareas que ya están asignadas
+            .ToList();
+
+        ViewBag.TodasLasTareas = tareasDisponibles;
+
+        return View(tareasAsignadas);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> AsignarTareas(string ninoId, List<string> selectedTareas)
+    {
+        var objectIdNino = ObjectId.Parse(ninoId);
+        var nino = await _ninoService.GetByIdAsync(objectIdNino);
+
+        if (nino == null)
+        {
+            return NotFound();
+        }
+
+        // Asignar las tareas seleccionadas al niño
+        if (selectedTareas != null)
+        {
+            var tareasIds = selectedTareas.Select(t => ObjectId.Parse(t)).ToList();
+            nino.tareas.AddRange(tareasIds);
+
+            // Actualizar el niño con las nuevas tareas
+            await _ninoService.UpdateAsync(ninoId, nino);
+        }
+
+        return RedirectToAction("VerTareas", new { id = ninoId });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EliminarTareaAsignada(string ninoId, string tareaId)
+    {
+        var objectIdNino = ObjectId.Parse(ninoId);
+        var objectIdTarea = ObjectId.Parse(tareaId);
+
+        var nino = await _ninoService.GetByIdAsync(objectIdNino);
+
+        if (nino == null)
+        {
+            return NotFound();
+        }
+
+        // Eliminar la tarea de la lista de tareas asignadas al niño
+        if (nino.tareas.Contains(objectIdTarea))
+        {
+            nino.tareas.Remove(objectIdTarea);
+
+            // Actualizar al niño en la base de datos
+            await _ninoService.UpdateAsync(ninoId, nino);
+        }
+
+        return RedirectToAction("VerTareas", new { id = ninoId });
+    }
 }

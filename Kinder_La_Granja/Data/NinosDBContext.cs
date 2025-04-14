@@ -37,7 +37,34 @@ public class NinosDBContext : INinos
         await _ninos.InsertOneAsync(nino);
     }
 
-  
+    public async Task<List<Tareas>> GetTareasByNinoIdAsync(ObjectId ninoId)
+    {
+        var nino = await _ninos.Find(n => n._id == ninoId).FirstOrDefaultAsync();
 
+        if (nino != null && nino.tareas != null && nino.tareas.Any())
+        {
+            return nino.tareas.Select(tareaId => new Tareas
+            {
+                _id = tareaId,
+            }).ToList();
+        }
 
+        return new List<Tareas>();
+    }
+
+    public async Task UpdateAsync(string id, Ninos nino)
+    {
+        var objectId = ObjectId.Parse(id);
+
+        // Aquí actualizas el niño en la base de datos
+        var result = await _ninos.ReplaceOneAsync(
+            filter: n => n._id == objectId,
+            replacement: nino
+        );
+
+        if (result.MatchedCount == 0)
+        {
+            throw new Exception("No se pudo actualizar el niño. Puede que no exista.");
+        }
+    }
 }

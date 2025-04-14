@@ -1,0 +1,143 @@
+﻿@model List<Kinder_La_Granja.Models.Tareas>
+
+<h2 class="mt-5 text-white text-center">Tareas del Niño</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-center">No hay tareas asignadas a este niño.</p>
+}
+else
+{
+    <div class="table-container">
+        <div class="table-wrapper">
+            <table class="custom-table">
+                <thead>
+                <tr>
+                    <th>Nombre de la Tarea</th>
+                    <th>Descripcion</th>
+                    <th>Fecha Asignada</th>
+                    <th>Fecha Entrega</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var tarea in Model)
+                {
+                    <tr>
+                        <td>@tarea.nombre</td>
+                        <td>@tarea.descripcion</td>
+                        <td>@tarea.fecha_asignada</td>
+                        <td>@tarea.fecha_entrega</td>
+                        <td>
+                            <form method="post" asp-action="EliminarTareaAsignada" asp-route-ninoId="@ViewBag.NinoId"
+                                  asp-route-tareaId="@tarea._id">
+                                <button type="submit" class="btn btn-outline-danger btn-sm">
+                                    Eliminar
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+<h3 class="mt-4 text-white">Asignar Nuevas Tareas</h3>
+<form method="post" asp-action="AsignarTareas" asp-route-ninoId="@ViewBag.NinoId">
+    <div class="form-group">
+        <label for="Tareas" class="text-white">Selecciona las Tareas:</label>
+        <select name="selectedTareas" class="form-control" multiple="multiple">
+            @foreach (var tarea in ViewBag.TodasLasTareas)
+            {
+                <option value="@tarea._id">
+                    @* Mostramos los detalles de cada tarea *@
+                    Tarea: @tarea.nombre
+                    - Descripción: @tarea.descripcion
+                    - Fecha Asignada: @tarea.fecha_asignada.ToShortDateString()
+                    - Fecha de Entrega: @tarea.fecha_entrega.ToShortDateString()
+                </option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-outline-primary mt-3">Asignar Tareas</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Volver al Listado de Niños</a>
+
+<style>
+    .table-container {
+        max-width: 90%;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .table-wrapper {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: white;
+    }
+
+    .custom-table thead {
+        position: sticky;
+        top: 0;
+        background: #007bff;
+        color: white;
+        z-index: 10;
+    }
+
+    .custom-table th, .custom-table td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-outline-danger {
+        border-color: #dc3545;
+        color: #dc3545;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn-outline-warning {
+        border-color: #ffc107;
+        color: #ffc107;
+    }
+
+    .btn-outline-warning:hover {
+        background-color: #ffc107;
+        color: white;
+    }
+
+    .btn-outline-info {
+        border-color: #17a2b8;
+        color: #17a2b8;
+    }
+
+    .btn-outline-info:hover {
+        background-color: #17a2b8;
+        color: white;
+    }
+</style>
