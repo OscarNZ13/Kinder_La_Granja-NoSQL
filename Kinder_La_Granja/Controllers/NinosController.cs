@@ -47,8 +47,6 @@ public class NinosController : Controller
         return View(resultado ?? new List<Ninos>());
     }
 
-
-
     public async Task<IActionResult> Create()
     {
         var niveles = await _nivelService.GetAllAsync();
@@ -119,5 +117,82 @@ public class NinosController : Controller
         return View(nino);
     }
 
+    // GET: Editar
+    public async Task<IActionResult> Editar(string id)
+    {
+        var objectId = ObjectId.Parse(id);
+        var nino = await _ninoService.GetByIdAsync(objectId);
 
+        if (nino == null)
+            return NotFound();
+
+        var niveles = await _nivelService.GetAllAsync();
+        ViewBag.Niveles = new SelectList(niveles, "id", "nombre", nino.nivel);
+
+        var condicionesMedicas = _icontext.GetAllCondiciones_Medicas();
+        ViewBag.CondicionesMedicas = new MultiSelectList(condicionesMedicas, "Id", "nombre", nino.CondicionesMedicas);
+
+        return View(nino);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Editar(Ninos nino, List<string> selectedCondicionesMedicas, string removeCondicionId)
+    {
+        var actual = await _ninoService.GetByIdAsync(nino._id);
+        if (actual == null)
+            return NotFound();
+
+        // Si se quiere eliminar una condición
+        if (!string.IsNullOrEmpty(removeCondicionId))
+        {
+            var idEliminar = new ObjectId(removeCondicionId);
+            actual.CondicionesMedicas.Remove(idEliminar);
+
+            await _ninoService.UpdateAsync(actual._id, actual);
+            return RedirectToAction("Editar", new { id = actual._id.ToString() });
+        }
+
+        // Agregar nuevas condiciones médicas (evita duplicados)
+        if (selectedCondicionesMedicas != null)
+        {
+            foreach (var id in selectedCondicionesMedicas)
+            {
+                var objId = new ObjectId(id);
+                if (!actual.CondicionesMedicas.Contains(objId))
+                    actual.CondicionesMedicas.Add(objId);
+            }
+        }
+
+        // Actualizar otros campos editables
+        actual.nombre = nino.nombre;
+        actual.direccion = nino.direccion;
+        actual.poliza = nino.poliza;
+        actual.nivel = nino.nivel;
+
+        await _ninoService.UpdateAsync(actual._id, actual);
+        return RedirectToAction("Index");
+    }
+
+
+// GET: Eliminar
+    public async Task<IActionResult> Eliminar(string id)
+    {
+        var objectId = ObjectId.Parse(id);
+        var nino = await _ninoService.GetByIdAsync(objectId);
+
+        if (nino == null)
+            return NotFound();
+
+        return View(nino);
+    }
+
+    [HttpPost, ActionName("Eliminar")]
+    public async Task<IActionResult> ConfirmarEliminar(string id)
+    {
+        var objectId = ObjectId.Parse(id);
+        await _ninoService.DeleteAsync(objectId); // Implementar este método
+        return RedirectToAction("Index");
+    }
+
+    
 }

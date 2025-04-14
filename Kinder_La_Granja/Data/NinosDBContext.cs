@@ -37,7 +37,16 @@ public class NinosDBContext : INinos
         await _ninos.InsertOneAsync(nino);
     }
 
-  
+    public async Task UpdateAsync(ObjectId id, Ninos nino)
+    {
+        await _ninos.ReplaceOneAsync(n => n._id == id, nino);
+    }
+
+    public async Task DeleteAsync(ObjectId id)
+    {
+        await _ninos.DeleteOneAsync(n => n._id == id);
+    }
+
 
 
 }

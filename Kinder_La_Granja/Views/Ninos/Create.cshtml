@@ -47,7 +47,7 @@
 
     <div>
         <label for="condicionesMedicas">Condiciones Médicas:</label>
-        <select id="condicionesMedicas" name="selectedCondicionesMedicas" class="form-select bg-dark text-white border-secondary" multiple="multiple">
+        <select id="condicionesMedicas" name="selectedCondicionesMedicas" class="form-select bg-dark text-white" multiple="multiple">
             @foreach (var item in ViewBag.CondicionesMedicas)
             {
                 <option value="@item.Value">@item.Text</option>
