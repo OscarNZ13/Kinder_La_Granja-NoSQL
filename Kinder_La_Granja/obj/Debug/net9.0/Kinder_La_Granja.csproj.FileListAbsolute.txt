@@ -312,7 +312,6 @@ C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net
 C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\scopedcss\bundle\Kinder_La_Granja.styles.css
 C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\scopedcss\projectbundle\Kinder_La_Granja.bundle.scp.css
-C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\compressed\v79vm8tixv-b9sayid5wm.gz
 C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\compressed\mm4xvibb4z-61n19gt1b8.gz
 C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\compressed\5kfzcmc9ou-xtxxf3hu2r.gz
 C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\compressed\ybxeez5v06-t1cqhe9u97.gz
@@ -998,3 +997,4 @@ C:\Users\kokar\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\n
 C:\Users\kokar\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\Kinder_La_Granja.genruntimeconfig.cache
 C:\Users\kokar\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\ref\Kinder_La_Granja.dll
 C:\Users\thama\OneDrive - Universidad Fidélitas\Universidad\VII Cuatrimestre\NoSQL\Proyecto\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\compressed\v79vm8tixv-z683rxsr0p.gz
+C:\Users\XPC\RiderProjects\Kinder_La_Granja-NoSQL\Kinder_La_Granja\obj\Debug\net9.0\compressed\v79vm8tixv-z683rxsr0p.gz

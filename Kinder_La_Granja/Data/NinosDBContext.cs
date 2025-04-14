@@ -67,4 +67,10 @@ public class NinosDBContext : INinos
             throw new Exception("No se pudo actualizar el niño. Puede que no exista.");
         }
     }
+    
+    public async Task DeleteAsync(ObjectId id)
+    {
+        await _ninos.DeleteOneAsync(n => n._id == id);
+    }
+
 }

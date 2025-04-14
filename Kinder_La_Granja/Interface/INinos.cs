@@ -12,4 +12,5 @@ public interface INinos
     Task CreateAsync(Ninos nino);
     Task<List<Tareas>> GetTareasByNinoIdAsync(ObjectId ninoId); 
     Task UpdateAsync(string id, Ninos nino);
+    Task DeleteAsync(ObjectId id);
 }

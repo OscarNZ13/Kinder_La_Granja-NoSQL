@@ -48,7 +48,6 @@ public class UsuariosDBContext : IUsuarios
         var filter = Builders<Usuarios>.Filter.Eq(u => u.Id, objectId);
 
         var update = Builders<Usuarios>.Update
-            .Set(u => u.Cedula, usuario.Cedula)
             .Set(u => u.Nombre, usuario.Nombre)
             .Set(u => u.NumTelefono, usuario.NumTelefono)
             .Set(u => u.Direccion, usuario.Direccion)

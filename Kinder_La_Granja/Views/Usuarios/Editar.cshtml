@@ -3,52 +3,19 @@
 @{
     ViewData["Title"] = "Editar Usuario";
 }
-
-<header>
-    <div class="logo">
-        <a href="@Url.Action("Index", "Home")">
-            <!-- Redirige a la página principal -->
-            <img src="~/img/kinderlogo.png" alt="Kinder Care Logo">
-        </a>
-        <span>Kinder La Granja</span>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a asp-controller="Usuarios" asp-action="Index"><i class="fas fa-user"></i> Usuarios</a>
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-child"></i> Niños</a>
-            </li>
-        </ul>
-    </nav>
-    <a asp-controller="Usuarios" asp-action="logout" class="btn-login">
-        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-    </a>
-</header>
-
-<!-- Sección de edición -->
 <!-- Sección de edición -->
 <section class="form-container">
     <h2>Editar Usuario</h2>
     <form asp-action="Editar" method="post">
         <input type="hidden" name="Id" value="@Model.Id.ToString()"/>
-
+        
         <div class="form-row">
-            <div class="form-group">
-                <label>Cédula</label>
-                <input type="text" asp-for="Cedula" required/>
-                <span class="text-danger" asp-validation-for="Cedula"></span>
-            </div>
-
             <div class="form-group">
                 <label>Nombre</label>
                 <input type="text" asp-for="Nombre" required/>
                 <span class="text-danger" asp-validation-for="Nombre"></span>
             </div>
-        </div>
-
-        <div class="form-row">
+            
             <div class="form-group">
                 <label>Correo Electrónico</label>
                 <input type="email" asp-for="CorreoElectronico" required/>
@@ -108,6 +75,16 @@
         top: 0;
         left: 0;
         z-index: 1000;
+    }
+
+    .hero {
+        padding: 100px 40px 60px 40px;
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: rgba(18, 25, 51, 0.9); /* tono oscuro elegante */
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
     }
 
     .logo {
@@ -281,3 +258,4 @@
         console.log("Página de edición cargada correctamente.");
     });
 </script>
+
