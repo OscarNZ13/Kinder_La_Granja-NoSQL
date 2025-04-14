@@ -10,5 +10,5 @@ public interface INinos
     Task<List<Ninos>> GetByNivelAsync(int nivelId);
     Task<Ninos> GetByIdAsync(ObjectId id);
     Task CreateAsync(Ninos nino);
-    //Task<List<Ninos>> GetByCondiciones_MedicasAsync(string condicionMedicaId);
+    Task<List<Tareas>> GetTareasByNinoIdAsync(ObjectId ninoId); 
 }

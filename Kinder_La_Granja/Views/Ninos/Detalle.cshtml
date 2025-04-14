@@ -87,6 +87,9 @@
 
         <div class="button-group mt-4 d-flex justify-content-center">
             <a asp-action="Index" class="btn-cancel">Volver al Listado</a>
+            <a asp-action="VerTareas" asp-route-id="@Model._id" class="btn btn-primary">
+                <i class="fas fa-tasks"></i> Ver Tareas
+            </a>
         </div>
     </form>
 </section>

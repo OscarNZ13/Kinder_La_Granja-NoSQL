@@ -18,12 +18,15 @@ public class NinosController : Controller
     private readonly INinos _ninoService;
     private readonly INivel _nivelService;
     private readonly ICondiciones_Medicas _icontext;
+    private readonly ITareas _tareasService;
 
-    public NinosController(INinos ninoService, INivel nivelService, ICondiciones_Medicas icontext)
+    public NinosController(INinos ninoService, INivel nivelService, ICondiciones_Medicas icontext,
+        ITareas tareasService)
     {
         _ninoService = ninoService;
         _nivelService = nivelService;
         _icontext = icontext;
+        _tareasService = tareasService;
     }
 
     public async Task<IActionResult> Index(string nivelId)
@@ -46,7 +49,6 @@ public class NinosController : Controller
 
         return View(resultado ?? new List<Ninos>());
     }
-
 
 
     public async Task<IActionResult> Create()
@@ -79,8 +81,8 @@ public class NinosController : Controller
         //}
 
         nino.CondicionesMedicas = selectedCondicionesMedicas
-        .Select(id => new ObjectId(id))
-        .ToList();
+            .Select(id => new ObjectId(id))
+            .ToList();
 
         await _ninoService.CreateAsync(nino);
         return RedirectToAction("Index");
@@ -119,5 +121,20 @@ public class NinosController : Controller
         return View(nino);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> VerTareas(string id)
+    {
+        var objectId = ObjectId.Parse(id);
+        var nino = await _ninoService.GetByIdAsync(objectId);
 
+        if (nino == null || nino.tareas == null || nino.tareas.Count == 0)
+        {
+            ViewBag.NinoId = id;
+            return View(new List<Tareas>());
+        }
+
+        var tareas = await _tareasService.GetTareasFromIdsAsync(nino.tareas);
+        ViewBag.NinoId = id;
+        return View(tareas);
+    }
 }

@@ -13,4 +13,5 @@ public interface ITareas
     Task CreateAsync(Tareas t);
     Task UpdateAsync(string id, Tareas t);
     Task DeleteAsync(string id);
+    Task<List<Tareas>> GetTareasFromIdsAsync(List<ObjectId> ids);
 }

@@ -37,7 +37,18 @@ public class NinosDBContext : INinos
         await _ninos.InsertOneAsync(nino);
     }
 
-  
+    public async Task<List<Tareas>> GetTareasByNinoIdAsync(ObjectId ninoId)
+    {
+        var nino = await _ninos.Find(n => n._id == ninoId).FirstOrDefaultAsync();
 
+        if (nino != null && nino.tareas != null && nino.tareas.Any())
+        {
+            return nino.tareas.Select(tareaId => new Tareas
+            {
+                _id = tareaId,
+            }).ToList();
+        }
 
+        return new List<Tareas>();
+    }
 }
