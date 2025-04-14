@@ -120,21 +120,82 @@ public class NinosController : Controller
 
         return View(nino);
     }
-
+    
     [HttpGet]
     public async Task<IActionResult> VerTareas(string id)
     {
         var objectId = ObjectId.Parse(id);
         var nino = await _ninoService.GetByIdAsync(objectId);
 
-        if (nino == null || nino.tareas == null || nino.tareas.Count == 0)
+        if (nino == null)
         {
-            ViewBag.NinoId = id;
-            return View(new List<Tareas>());
+            return NotFound();
         }
 
-        var tareas = await _tareasService.GetTareasFromIdsAsync(nino.tareas);
         ViewBag.NinoId = id;
-        return View(tareas);
+
+        // Obtener todas las tareas
+        var todasLasTareas = await _tareasService.GetAllAsync();
+
+        // Filtrar las tareas ya asignadas al niño
+        var tareasAsignadas = await _tareasService.GetTareasFromIdsAsync(nino.tareas);
+
+        // Eliminar las tareas asignadas de la lista de tareas disponibles
+        var tareasDisponibles = todasLasTareas
+            .Where(t => !nino.tareas.Contains(t._id)) // Filtra las tareas que ya están asignadas
+            .ToList();
+
+        ViewBag.TodasLasTareas = tareasDisponibles;
+
+        return View(tareasAsignadas);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AsignarTareas(string ninoId, List<string> selectedTareas)
+    {
+        var objectIdNino = ObjectId.Parse(ninoId);
+        var nino = await _ninoService.GetByIdAsync(objectIdNino);
+
+        if (nino == null)
+        {
+            return NotFound();
+        }
+
+        // Asignar las tareas seleccionadas al niño
+        if (selectedTareas != null)
+        {
+            var tareasIds = selectedTareas.Select(t => ObjectId.Parse(t)).ToList();
+            nino.tareas.AddRange(tareasIds);
+
+            // Actualizar el niño con las nuevas tareas
+            await _ninoService.UpdateAsync(ninoId, nino);
+        }
+
+        return RedirectToAction("VerTareas", new { id = ninoId });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EliminarTareaAsignada(string ninoId, string tareaId)
+    {
+        var objectIdNino = ObjectId.Parse(ninoId);
+        var objectIdTarea = ObjectId.Parse(tareaId);
+
+        var nino = await _ninoService.GetByIdAsync(objectIdNino);
+
+        if (nino == null)
+        {
+            return NotFound();
+        }
+
+        // Eliminar la tarea de la lista de tareas asignadas al niño
+        if (nino.tareas.Contains(objectIdTarea))
+        {
+            nino.tareas.Remove(objectIdTarea);
+
+            // Actualizar al niño en la base de datos
+            await _ninoService.UpdateAsync(ninoId, nino);
+        }
+
+        return RedirectToAction("VerTareas", new { id = ninoId });
     }
 }

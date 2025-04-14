@@ -51,4 +51,20 @@ public class NinosDBContext : INinos
 
         return new List<Tareas>();
     }
+
+    public async Task UpdateAsync(string id, Ninos nino)
+    {
+        var objectId = ObjectId.Parse(id);
+
+        // Aquí actualizas el niño en la base de datos
+        var result = await _ninos.ReplaceOneAsync(
+            filter: n => n._id == objectId,
+            replacement: nino
+        );
+
+        if (result.MatchedCount == 0)
+        {
+            throw new Exception("No se pudo actualizar el niño. Puede que no exista.");
+        }
+    }
 }

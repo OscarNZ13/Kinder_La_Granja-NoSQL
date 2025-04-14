@@ -1,130 +1,53 @@
-﻿@*@{
-    ViewData["Title"] = "Tareas del Niño";
-    var nombre = ViewBag.NombreNino as string;
-    var ninoId = ViewBag.NinoId as string;
-}
+﻿@model List<Kinder_La_Granja.Models.Tareas>
 
-<h2 class="mt-5 text-white text-center">Tareas de @nombre</h2>
+<h2 class="mt-5 text-white text-center">Tareas del Niño</h2>
 
-<div class="form-container mb-5 text-white text-center">
-    <p>(Aquí se mostrarán las tareas asignadas al niño con ID: @ninoId)</p>
-
-    <a asp-action="Detalle" asp-route-id="@ninoId" class="btn btn-secondary mt-3">Volver a Detalles</a>
-</div>
-
-<style>
-    .form-container {
-        max-width: 700px;
-        margin: auto;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border: none;
-        padding: 10px 20px;
-        font-weight: bold;
-    }
-
-    .btn-secondary:hover {
-        background-color: #5a6268;
-    }
-</style>*@
-
-@model List<Kinder_La_Granja.Models.Tareas>
-
-@{
-    ViewData["Title"] = "Tareas del Niño";
-}
-
-<h2 class="mt-5 text-white text-center">Tareas Asignadas</h2>
-
-@if (Model == null || Model.Count == 0)
+@if (!Model.Any())
 {
-    <div class="alert alert-info text-center mt-4">
-        Este niño no tiene tareas asignadas.
-    </div>
+    <p>No hay tareas asignadas a este niño.</p>
 }
 else
 {
-    <div class="table-container">
-        <div class="table-wrapper">
-            <table class="custom-table">
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Descripción</th>
-                        <th>Fecha entrega</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var tarea in Model)
-                    {
-                        <tr>
-                            <td>@tarea.nombre</td>
-                            <td>@tarea.descripcion</td>
-                            <td>@tarea.fecha_entrega.ToShortDateString()</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre de la Tarea</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var tarea in Model)
+        {
+            <tr>
+                <td>@tarea.nombre</td>
+                <td>
+                    <form method="post" asp-action="EliminarTareaAsignada" asp-route-ninoId="@ViewBag.NinoId"
+                          asp-route-tareaId="@tarea._id">
+                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                            Eliminar
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
 }
 
-<div class="button-group mt-4 d-flex justify-content-center">
-    <a asp-action="Detalle" asp-route-id="@ViewBag.NinoId" class="btn-cancel">Volver a Detalles</a>
-</div>
+<h3 class="mt-4 text-white">Asignar Nuevas Tareas</h3>
+<form method="post" asp-action="AsignarTareas" asp-route-ninoId="@ViewBag.NinoId">
+    <div class="form-group">
+        <label for="Tareas">Selecciona las Tareas:</label>
+        <select name="selectedTareas" class="form-control" multiple="multiple">
+            @foreach (var tarea in ViewBag.TodasLasTareas)
+            {
+                <option value="@tarea._id">@tarea.nombre</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-outline-primary mt-3">Asignar Tareas</button>
+</form>
 
-<style>
-    .table-container {
-        max-width: 90%;
-        margin: auto;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    }
+<a asp-action="Index" class="btn btn-secondary mt-3">Volver al Listado de Niños</a>
 
-    .table-wrapper {
-        max-height: 400px;
-        overflow-y: auto;
-    }
 
-    .custom-table {
-        width: 100%;
-        border-collapse: collapse;
-        color: white;
-    }
-
-    .custom-table thead {
-        position: sticky;
-        top: 0;
-        background: #007bff;
-        color: white;
-        z-index: 10;
-    }
-
-    .custom-table th, .custom-table td {
-        padding: 12px;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-cancel {
-        background: #6c757d;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: bold;
-        color: white;
-        transition: 0.3s;
-    }
-
-    .btn-cancel:hover {
-        background: #5a6268;
-    }
-</style>
